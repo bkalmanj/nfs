@@ -1,0 +1,20 @@
+## Error when trying to mount nfs share on client system ##
+
+[root@desktop ~]# mount server:/nfs0 /mnt/nfs0c
+mount: wrong fs type, bad option, bad superblock on agent:/nfs0,     >> ERROR
+       missing codepage or helper program, or other error
+       (for several filesystems (e.g. nfs, cifs) you might
+       need a /sbin/mount.<type> helper program)
+
+       In some cases useful info is found in syslog - try
+       dmesg | tail or so.
+
+## When you get the above error, please install nfs-utils on client system as well ##
+[root@desktop ~]# yum install nfs-utils
+
+## Then mount the nfs share ##
+[root@desktop ~]# mount server:/nfs0 /mnt/nfs0c
+
+## Nfs share has been mounted successfully ##
+[root@desktop ~]# ls -ld /mnt/nfs0c/
+drwxr-xr-x 2 root root 6 Jul  2 10:06 /mnt/nfs0c/
